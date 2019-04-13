@@ -95,7 +95,7 @@ class Display_Menu:
                 if self.hres == 640:
                         self.window.resize(640,480)
                 elif self.hres > 640:
-                        self.window.resize(800,600)
+                        self.window.resize(640,480)
 			# RedHat Logo
 			self.logo = gtk.Image()
 			self.logo.set_from_file("/usr/share/anaconda/pixmaps/anaconda_header.png")
