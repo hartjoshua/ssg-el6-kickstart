@@ -3,9 +3,9 @@
 # HARDENED RHEL DVD CREATOR
 #
 # This script was written by Frank Caviggia, Red Hat Consulting
-# Last update was 21 July 2015
-# This script is NOT SUPPORTED by Red Hat Global Support Services.
-# Please contact Josh Waldman for more information.
+# Updated by Joshua Hart, VMware Inc 04Apr2019 ( fixed versioning and created branding. ) 
+# This script is NOT SUPPORTED by Red Hat GSS or VMware PSO
+# 
 #
 # Author: Frank Caviggia (fcaviggia@gmail.com)
 # Copyright: Red Hat, (c) 2014
@@ -49,14 +49,14 @@ while getopts ":vhq" OPTION; do
 	esac
 done
 
-# Check for root user
-if [[ $EUID -ne 0 ]]; then
-	if [ -z "$QUIET" ]; then
-		echo
-		tput setaf 1;echo -e "\033[1mPlease re-run this script as root!\033[0m";tput sgr0
-	fi
-	exit 1
-fi
+# Check for root user  - Disabling this for initial testing on WIndows SYstems.
+#if [[ $EUID -ne 0 ]]; then
+#	if [ -z "$QUIET" ]; then
+#		echo
+#		tput setaf 1;echo -e "\033[1mPlease re-run this script as root!\033[0m";tput sgr0
+#	fi
+#	exit 1
+#fi
 
 # Check for required packages
 rpm -q genisoimage &> /dev/null
@@ -121,6 +121,8 @@ echo -n "Modifying RHEL DVD Image..."
 sed -i "s/6.X/$RHEL_VERSION/g" $DIR/config/isolinux/isolinux.cfg
 sed -i "s/6.X/$RHEL_VERSION/g" $DIR/config/EFI/BOOT/BOOTX64.conf
 cp -a $DIR/config/* $DIR/rhel-dvd/
+echo -n "Setting client branding..."
+cp -a $DIR/config/custom/*.jpg $DIR/rhel-dvd/isolinux/splash.jpg
 sed -i "s/$RHEL_VERSION/6.X/g" $DIR/config/isolinux/isolinux.cfg
 sed -i "s/$RHEL_VERSION/6.X/g" $DIR/config/EFI/BOOT/BOOTX64.conf
 echo " Done."
