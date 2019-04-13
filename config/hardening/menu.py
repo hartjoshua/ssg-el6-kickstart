@@ -2,7 +2,7 @@
 # Graphical Kickstart Script
 #
 # This script was written by Frank Caviggia, Red Hat Consulting
-# Last update was 29 April 2015
+# Updated by Joshua Hart ( fixed various typos and deprecated features )
 # This script is NOT SUPPORTED by Red Hat Global Support Services.
 #
 # Author: Frank Caviggia (fcaviggia@gmail.com)
@@ -138,13 +138,13 @@ class Display_Menu:
 		self.system.pack_start(self.label,False,True, 0)
                 self.system_profile = gtk.combo_box_new_text()
 		self.system_profile.append_text("Minimal Installation")
-		self.system_profile.append_text("User Workstation")
-		self.system_profile.append_text("Developer Workstation")
-		self.system_profile.append_text("IdM Authentication Server")
-		self.system_profile.append_text("RHN Satellite 5.7 Server")
-		self.system_profile.append_text("RHN Satellite 6.0 Server")
+		#self.system_profile.append_text("User Workstation")
+		#self.system_profile.append_text("Developer Workstation")
+		#self.system_profile.append_text("IdM Authentication Server")
+		#self.system_profile.append_text("RHN Satellite 5.7 Server")
+		#self.system_profile.append_text("RHN Satellite Server")
 		self.system_profile.append_text("Proprietary Database Server")
-		self.system_profile.append_text("RHEV-Attached KVM Server")
+		#self.system_profile.append_text("RHEV-Attached KVM Server")
 		#self.system_profile.append_text("Standalone KVM Server")
 		#self.system_profile.append_text("Apache Web Server")
 		#self.system_profile.append_text("Tomcat Web Server")
@@ -218,7 +218,7 @@ class Display_Menu:
                 self.cpu_information.pack_start(self.label,False,True, 0)
                 self.label = gtk.Label(" %d "%(self.cpu_cores))
                 self.cpu_information.pack_start(self.label,False,True, 0)
-                self.label = gtk.Label("   Architecure: ")
+                self.label = gtk.Label("   Architecture: ")
                 self.cpu_information.pack_start(self.label,False,True, 0)
                 self.label = gtk.Label(" %s "%(self.cpu_arch))
                 self.cpu_information.pack_start(self.label,False,True, 0)
