@@ -2,6 +2,7 @@
 # SCAP Security Guide RHEL 6 DVD CREATOR
 #
 # This script was written by Frank Caviggia, Red Hat Consulting
+# Updated by Joshua Hart, VMware Professional Services Org.
 # Updated 4APR2019 to include client branding, fix bugs, and fix controls.
 # This script is NOT SUPPORTED by Red Hat Global Support Services.
 #
